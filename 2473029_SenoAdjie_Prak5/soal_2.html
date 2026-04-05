@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473029-Seno Adjie Bintang Pratama</title>
+
+    <style>
+        .wadah-cincin {
+            position: relative;
+            padding: 25px;
+            width: 400px;
+            height: 200px;
+        }
+
+        .elemen {
+            position: absolute;
+            width: 150px;
+        }
+
+        .cincin-kiri-dasar {
+            height: 150px;
+            top: 25px;
+            left: 25px;
+            z-index: 1;
+            background: url('src/src/circle-red.png') no-repeat;
+            background-size: contain;
+        }
+
+        .cincin-kanan-dasar {
+            height: 150px;
+            top: 25px;
+            left: 225px;
+            z-index: 1;
+            background: url('src/src/circle-red.png') no-repeat;
+            background-size: contain;
+        }
+
+        .cincin-tengah-utama {
+            height: 150px;
+            top: 25px;
+            left: 125px;
+            z-index: 2;
+            background: url('src/src/circle-purple.png') no-repeat;
+            background-size: contain;
+        }
+
+
+        .potongan-kiri-atas {
+            height: 75px;
+            top: 25px;
+            left: 25px;
+            z-index: 3;
+            background: url('src/src/circle-red-half.png') no-repeat;
+            background-size: cover;
+        }
+
+        .potongan-kanan-atas {
+            height: 75px;
+            top: 25px;
+            left: 225px;
+            z-index: 3;
+            background: url('src/src/circle-red-half.png') no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wadah-cincin">
+        <div class="elemen cincin-kiri-dasar"></div>
+        <div class="elemen cincin-kanan-dasar"></div>
+
+        <div class="elemen cincin-tengah-utama"></div>
+
+        <div class="elemen potongan-kiri-atas"></div>
+        <div class="elemen potongan-kanan-atas"></div>
+    </div>
+</body>
+
+</html>

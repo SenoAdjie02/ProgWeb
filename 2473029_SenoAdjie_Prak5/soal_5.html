@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473029-Seno Adjie Bintang Pratama</title>
+
+    <style>
+        .menu-utama {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-utama>li {
+            float: left;
+            margin-right: 3px;
+            position: relative;
+        }
+
+        .tombol-nav {
+            border-style: dotted;
+            border-color: grey;
+            border-width: 2px;
+            width: 120px;
+            display: block;
+            color: black;
+            padding: 4px;
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .tombol-nav:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ada-dropdown:hover .submenu {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu-utama">
+        <li><a href="#home" class="tombol-nav">Home</a></li>
+        <li class="ada-dropdown">
+            <a href="#news" class="tombol-nav">News</a>
+            <ul class="submenu">
+                <li><a href="#sports" class="tombol-nav">Sports</a></li>
+                <li><a href="#music" class="tombol-nav">Music</a></li>
+                <li><a href="#movie" class="tombol-nav">Movie</a></li>
+            </ul>
+        </li>
+        <li><a href="#contact" class="tombol-nav">Contact</a></li>
+        <li><a href="#about" class="tombol-nav">About</a></li>
+    </ul>
+</body>
+
+</html>
