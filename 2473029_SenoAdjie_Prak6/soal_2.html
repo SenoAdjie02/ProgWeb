@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473029-Seno Adjie Bintang Pratama</title>
+
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            font-size: 25px;
+        }
+
+        td {
+            border: 1px solid #000000;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+            let userInput;
+            let multiplier;
+
+            do {
+                userInput = prompt("A number?");
+
+                if (userInput !== null && userInput.trim() !== "") {
+                    multiplier = parseInt(userInput);
+                } else {
+                    multiplier = NaN;
+                }
+
+            } while (isNaN(multiplier));
+
+            if (multiplier) {
+                let tableContent = "<table>";
+
+                for (let step = 1; step <= multiplier; step++) {
+                    let product = step * multiplier;
+
+                    tableContent += `
+                            <tr>
+                                <td>${step}</td>
+                                <td>x</td>
+                                <td>${multiplier}</td>
+                                <td>=</td>
+                                <td>${product}</td>
+                            </tr>
+                        `;
+                }
+
+                tableContent += "</table>";
+
+                document.getElementById("tabel-container").innerHTML = tableContent;
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="tabel-container"></div>
+</body>
+
+</html>

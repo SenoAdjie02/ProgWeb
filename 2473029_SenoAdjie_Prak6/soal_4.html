@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473029-Seno Adjie Bintang Pratama</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .wadah-utama {
+            display: inline-block;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 320px;
+        }
+
+        td {
+            border: 1px solid gray;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .teks-label {
+            color: blue;
+            font-weight: bold;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        select {
+            width: 60%;
+            padding: 3px;
+        }
+
+        button {
+            font-weight: bold;
+            padding: 4px;
+            margin: 3px;
+            color: blue;
+            cursor: pointer;
+        }
+
+        #kolom-hasil {
+            color: gray;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function jalankanKonversi() {
+            const nilaiMasukan = document.getElementById("kolom-input").value;
+            const tipeKonversi = document.getElementById("opsi-konversi").value;
+            const elemenHasil = document.getElementById("kolom-hasil");
+
+            if (tipeKonversi === "decimal-biner") {
+                let angkaDesimal = parseInt(nilaiMasukan);
+
+                if (isNaN(angkaDesimal) || angkaDesimal < 0 || angkaDesimal > 255) {
+                    alert("Untuk konversi decimal-biner, input hanya bisa diisi angka 0 s/d 255!");
+                    return;
+                }
+
+                let susunanBiner = "";
+                let nilaiSisa = angkaDesimal;
+
+                if (nilaiSisa === 0) {
+                    susunanBiner = "0";
+                } else {
+                    while (nilaiSisa > 0) {
+                        let modulus = nilaiSisa % 2;
+                        susunanBiner = modulus + susunanBiner;
+                        nilaiSisa = Math.floor(nilaiSisa / 2);
+                    }
+                }
+
+                while (susunanBiner.length < 8) {
+                    susunanBiner = "0" + susunanBiner;
+                }
+
+                elemenHasil.value = susunanBiner;
+
+            } else if (tipeKonversi === "biner-decimal") {
+
+                const regexBiner = /^[01]{8}$/;
+                if (!regexBiner.test(nilaiMasukan)) {
+                    alert("Untuk konversi biner-decimal, input hanya bisa diisi dengan angka 0 atau 1 sebanyak 8 digit!");
+                    return;
+                }
+
+                let totalDesimal = 0;
+                const panjangInput = nilaiMasukan.length;
+
+                for (let k = 0; k < panjangInput; k++) {
+                    let digitBiner = parseInt(nilaiMasukan[k]);
+                    totalDesimal = (totalDesimal * 2) + digitBiner;
+                }
+
+                elemenHasil.value = totalDesimal;
+            }
+        }
+
+        function bersihkanLayar() {
+            document.getElementById('kolom-input').value = "";
+            document.getElementById('kolom-hasil').value = "";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wadah-utama">
+        <table>
+            <tr>
+                <td class="teks-label">Input :</td>
+                <td><input type="text" id="kolom-input"></td>
+            </tr>
+            <tr>
+                <td class="teks-label">Output :</td>
+                <td><input type="text" id="kolom-hasil" readonly></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <select id="opsi-konversi">
+                        <option value="decimal-biner">decimal-biner</option>
+                        <option value="biner-decimal">biner-decimal</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button id="tombol-proses" onclick="jalankanKonversi()">PROSES</button>
+                    <button id="tombol-reset" onclick="bersihkanLayar()">RESET</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

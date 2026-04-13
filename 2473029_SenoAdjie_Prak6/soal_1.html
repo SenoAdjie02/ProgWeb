@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473029-Seno Adjie Bintang Pratama</title>
+
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .wadah-input {
+            margin-bottom: 8px;
+        }
+
+        .wadah-input input {
+            width: 100px;
+        }
+
+        .tombol-hitung {
+            margin-bottom: 10px;
+            padding: 2px 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        table td {
+            border: 1px solid black;
+            width: 50px;
+            height: 40px;
+        }
+
+        table td.kolom-hasil {
+            width: 60px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function proses_hitung() {
+            const elemen_satu = document.getElementById("bilangan_1");
+            const elemen_dua = document.getElementById("bilangan_2");
+
+            const nilai_a = parseInt(elemen_satu.value);
+            const nilai_b = parseInt(elemen_dua.value);
+
+            const status_a_bukan_angka = isNaN(nilai_a);
+            const status_b_bukan_angka = isNaN(nilai_b);
+
+            if (status_a_bukan_angka && status_b_bukan_angka) {
+                alert("angka pertama dan kedua harus angka.");
+            } else if (status_a_bukan_angka) {
+                alert("angka pertama bukan angka.");
+            } else if (status_b_bukan_angka) {
+                alert("angka kedua harus angka.");
+            } else {
+                const total_tambah = nilai_a + nilai_b;
+                const total_kurang = nilai_a - nilai_b;
+
+                document.getElementById("tampil_a1").innerHTML = nilai_a;
+                document.getElementById("tampil_b1").innerHTML = nilai_b;
+                document.getElementById("res_tambah").innerHTML = total_tambah;
+
+                document.getElementById("tampil_a2").innerHTML = nilai_a;
+                document.getElementById("tampil_b2").innerHTML = nilai_b;
+                document.getElementById("res_kurang").innerHTML = total_kurang;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wadah-input">
+        Angka Pertama :
+        <input type="text" id="bilangan_1">
+    </div>
+    <div class="wadah-input">
+        Angka Kedua :
+        <input type="text" id="bilangan_2">
+    </div>
+
+    <button class="tombol-hitung" onclick="proses_hitung()">Count</button>
+
+    <table>
+        <tr>
+            <td id="tampil_a1"></td>
+            <td>+</td>
+            <td id="tampil_b1"></td>
+            <td>=</td>
+            <td id="res_tambah" class="kolom-hasil"></td>
+        </tr>
+        <tr>
+            <td id="tampil_a2"></td>
+            <td>-</td>
+            <td id="tampil_b2"></td>
+            <td>=</td>
+            <td id="res_kurang" class="kolom-hasil"></td>
+        </tr>
+    </table>
+</body>
+
+</html>
