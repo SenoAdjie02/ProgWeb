@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473029-Seno Adjie Bintang Pratama</title>
+
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .pembungkus-tabel {
+            display: inline-block;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .tabel-rating {
+            border-collapse: collapse;
+        }
+
+        .tabel-rating th,
+        .tabel-rating td {
+            border: 1px solid white;
+            padding: 6px 12px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        /* Bagian Header Tabel */
+        .header-tabel {
+            background-color: #9bb097;
+        }
+
+        /* Variasi warna baris */
+        .warna-baris-ganjil {
+            background-color: #92bdf6;
+        }
+
+        .warna-baris-genap {
+            background-color: #f6ba92;
+        }
+
+        .warna-sorot-hijau {
+            background-color: #CCFFAA;
+        }
+    </style>
+
+    <script>
+        function terapkanKelasWarna(elemenBaris, namaKelasTujuan) {
+            elemenBaris.className = namaKelasTujuan;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="pembungkus-tabel">
+        <table class="tabel-rating">
+            <thead>
+                <tr class="header-tabel">
+                    <th>Position</th>
+                    <th>Programming Language</th>
+                    <th>Ratings</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="warna-baris-ganjil" onmouseover="terapkanKelasWarna(this, 'warna-sorot-hijau')"
+                    onmouseout="terapkanKelasWarna(this, 'warna-baris-ganjil')">
+                    <td>1</td>
+                    <td>C</td>
+                    <td>18.058%</td>
+                </tr>
+
+                <tr class="warna-baris-genap" onmouseover="terapkanKelasWarna(this, 'warna-sorot-hijau')"
+                    onmouseout="terapkanKelasWarna(this, 'warna-baris-genap')">
+                    <td>2</td>
+                    <td>Java</td>
+                    <td>18.051%</td>
+                </tr>
+
+                <tr class="warna-baris-ganjil" onmouseover="terapkanKelasWarna(this, 'warna-sorot-hijau')"
+                    onmouseout="terapkanKelasWarna(this, 'warna-baris-ganjil')">
+                    <td>3</td>
+                    <td>C++</td>
+                    <td>9.707%</td>
+                </tr>
+
+                <tr class="warna-baris-genap" onmouseover="terapkanKelasWarna(this, 'warna-sorot-hijau')"
+                    onmouseout="terapkanKelasWarna(this, 'warna-baris-genap')">
+                    <td>4</td>
+                    <td>PHP</td>
+                    <td>9.662%</td>
+                </tr>
+
+                <tr class="warna-baris-ganjil" onmouseover="terapkanKelasWarna(this, 'warna-sorot-hijau')"
+                    onmouseout="terapkanKelasWarna(this, 'warna-baris-ganjil')">
+                    <td>5</td>
+                    <td>(Visual) Basic</td>
+                    <td>6.392%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

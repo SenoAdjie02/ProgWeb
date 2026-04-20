@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473029-Seno Adjie Bintang Pratama</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .wadah-form {
+            border: 1px solid gray;
+            padding: 10px;
+            display: inline-block;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .tabel-layout {
+            border-collapse: separate;
+            border-spacing: 4px;
+        }
+
+        .tabel-layout td {
+            padding: 4px;
+        }
+
+        .label-mesin {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 24px;
+            padding-right: 15px;
+        }
+
+        .teks-box {
+            width: 200px;
+            padding: 2px;
+        }
+    </style>
+
+    <script>
+        let koleksiAngka = [];
+
+        function simpanKeArray() {
+            const elemenMasukan = document.getElementById('inputAngka');
+            const nilaiAngka = parseFloat(elemenMasukan.value);
+
+            if (!isNaN(nilaiAngka)) {
+                koleksiAngka.push(nilaiAngka);
+
+                elemenMasukan.value = "";
+                elemenMasukan.focus();
+            } else {
+                alert("Mohon masukkan angka dengan benar!");
+            }
+        }
+
+        function jalankanPerintah() {
+            const menuPilihan = document.getElementById('comboOperasi').value;
+            const kotakKeluaran = document.getElementById('outputHasil');
+
+            if (koleksiAngka.length === 0 && menuPilihan !== 'hapus_semua' && menuPilihan !== '') {
+                kotakKeluaran.value = "Data Masih Kosong!";
+                return;
+            }
+
+            if (menuPilihan === 'tampil_data') {
+                kotakKeluaran.value = koleksiAngka.join(', ');
+            }
+            else if (menuPilihan === 'hitung_jumlah_data') {
+                kotakKeluaran.value = koleksiAngka.length;
+            }
+            else if (menuPilihan === 'total_nilai') {
+                kotakKeluaran.value = koleksiAngka.reduce((akumulator, nilai) => akumulator + nilai, 0);
+            }
+            else if (menuPilihan === 'nilai_rata_rata') {
+                const total = koleksiAngka.reduce((akumulator, nilai) => akumulator + nilai, 0);
+                kotakKeluaran.value = total / koleksiAngka.length;
+            }
+            else if (menuPilihan === 'nilai_maksimum') {
+                kotakKeluaran.value = Math.max(...koleksiAngka);
+            }
+            else if (menuPilihan === 'nilai_minimum') {
+                kotakKeluaran.value = Math.min(...koleksiAngka);
+            }
+            else if (menuPilihan === 'filter_ganjil') {
+                const angkaGanjil = koleksiAngka.filter(angka => angka % 2 !== 0);
+                kotakKeluaran.value = angkaGanjil.join(', ');
+            }
+            else if (menuPilihan === 'filter_genap') {
+                const angkaGenap = koleksiAngka.filter(angka => angka % 2 === 0);
+                kotakKeluaran.value = angkaGenap.join(', ');
+            }
+            else if (menuPilihan === 'hapus_semua') {
+                koleksiAngka = [];
+                kotakKeluaran.value = "Semua isi Array dihapus";
+                document.getElementById('comboOperasi').value = "";
+            }
+            else {
+                kotakKeluaran.value = "";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wadah-form">
+        <table class="tabel-layout">
+            <tr>
+                <td class="label-mesin">Data</td>
+                <td>
+                    <input type="text" id="inputAngka" class="teks-box">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button onclick="simpanKeArray()">Add</button>
+                </td>
+                <td>
+                    <select id="comboOperasi" onchange="jalankanPerintah()">
+                        <option value="">Pilih Operasi</option>
+                        <option value="tampil_data">Display</option>
+                        <option value="hitung_jumlah_data">Count</option>
+                        <option value="total_nilai">Sum</option>
+                        <option value="nilai_rata_rata">Average</option>
+                        <option value="nilai_maksimum">Max</option>
+                        <option value="nilai_minimum">Min</option>
+                        <option value="filter_ganjil">Ganjil</option>
+                        <option value="filter_genap">Genap</option>
+                        <option value="hapus_semua">Hapus</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label-mesin">Hasil</td>
+                <td>
+                    <input type="text" id="outputHasil" class="teks-box" readonly>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

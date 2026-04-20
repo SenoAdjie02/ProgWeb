@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473029-Seno Adjie Bintang Pratama</title>
+
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .wadah-form {
+            width: 400px;
+        }
+
+        .tabel-layout {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tabel-layout td {
+            padding: 4px;
+            vertical-align: top;
+        }
+
+        .kolom-label {
+            width: 70px;
+        }
+
+        .kolom-pemisah {
+            width: 10px;
+        }
+
+        .input-teks {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            padding: 4px;
+        }
+
+        .area-deskripsi textarea {
+            width: 100%;
+            height: 100px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-family: monospace;
+            font-size: 13px;
+            resize: vertical;
+        }
+
+        .wadah-counter {
+            text-align: right;
+            margin-top: 2px;
+        }
+
+        #kotakPenghitung {
+            width: 60px;
+            text-align: right;
+            border: 1px solid #ccc;
+            padding: 4px;
+            font-size: 12px;
+            font-family: sans-serif;
+            background-color: #f9f9f9;
+        }
+    </style>
+
+    <script>
+        function hitungKarakter(elemenArea) {
+            var batasMaksimal = 256;
+            var teksSaatIni = elemenArea.value;
+
+            if (teksSaatIni.length > batasMaksimal) {
+                elemenArea.value = teksSaatIni.substr(0, batasMaksimal);
+                teksSaatIni = elemenArea.value; 
+            }
+
+            document.getElementById("kotakPenghitung").value = teksSaatIni.length + "/" + batasMaksimal;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wadah-form">
+        <table class="tabel-layout">
+            <tr>
+                <td class="kolom-label">Judul</td>
+                <td class="kolom-pemisah">:</td>
+                <td>
+                    <input type="text" id="inputJudul" class="input-teks">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="kolom-label">Deskripsi</td>
+                <td class="kolom-pemisah">:</td>
+                <td class="area-deskripsi">
+                    <textarea onkeyup="hitungKarakter(this)" onkeydown="hitungKarakter(this)"></textarea>
+
+                    <div class="wadah-counter">
+                        <input type="text" id="kotakPenghitung" value="0/256" readonly>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
