@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473029-Seno Adjie Bintang Pratama</title>
+
+    <style>
+        div {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            float: left;
+            border: 2px blue solid;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        span {
+            color: red;
+        }
+
+        .header-section {
+            width: 100%;
+            display: block;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("div").click(function () {
+                $("div").removeAttr("id").css("background-color", "transparent");
+                $(this).css("background-color", "red").attr("id", "kotakMerah");
+            });
+
+            $("button").click(function () {
+                $("div").each(function (index, domEle) {
+                    if ($(domEle).attr("id") === "kotakMerah") {
+                        return false;
+                    } else {
+                        $(domEle).css("background-color", "yellow");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <section class="header-section">
+        <button>Change colors</button>
+    </section>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+
+</html>

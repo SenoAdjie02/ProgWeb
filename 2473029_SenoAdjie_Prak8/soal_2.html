@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473029-Seno Adjie Bintang Pratama</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnAdd").click(function () {
+                var nama = $("#inputName").val();
+                if (nama !== "") {
+                    $("<div>" + nama + "</div>").appendTo("#daftarNama");
+                    $("#inputName").val("");
+                }
+            });
+
+            $("#btnSearch").click(function () {
+                var cari = $("#inputName").val();
+                $("#daftarNama div").css("text-decoration", "none");
+
+                if (cari !== "") {
+                    $("#daftarNama div:contains('" + cari + "')").css("text-decoration", "underline");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="inputName">
+    <button id="btnAdd">Add</button>
+    <button id="btnSearch">Search</button>
+
+    <div id="daftarNama">
+        <div>John Resig</div>
+        <div>George Martin</div>
+        <div>Malcom John Sinclair</div>
+        <div>J. Ohn</div>
+    </div>
+</body>
+
+</html>

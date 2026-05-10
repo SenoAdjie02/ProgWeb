@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473029-Seno Adjie Bintang Pratama</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .search-box {
+            background-color: white;
+            width: 400px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+        }
+
+        #searchIT {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+
+        #companyList {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        #companyList li {
+            padding: 5px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #333;
+        }
+
+        #companyList li:last-child {
+            border-bottom: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#searchIT").on("keyup input", function () {
+                var keyword = $(this).val().toLowerCase();
+
+                $("#companyList li").removeClass("highlight");
+
+                if (keyword !== "") {
+                    $("#companyList li").each(function () {
+                        var companyName = $(this).text().toLowerCase();
+
+                        if (companyName.indexOf(keyword) !== -1) {
+                            $(this).addClass("highlight");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="search-box">
+        <input type="text" id="searchIT" placeholder="Type to find company...">
+
+        <ul id="companyList">
+            <li>Sun Microsystem</li>
+            <li>Apache Software Foundation</li>
+            <li>Oracle Coorporation</li>
+            <li>International Bussiness Machines</li>
+            <li>Microsoft Coorporation</li>
+            <li>Apple Inc</li>
+            <li>Sap Ag</li>
+            <li>Accenture</li>
+            <li>Computer Sciences Coorporation</li>
+            <li>Google</li>
+            <li>Softbank</li>
+            <li>Yahoo</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
